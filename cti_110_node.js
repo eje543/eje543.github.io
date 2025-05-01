@@ -30,7 +30,7 @@ app.use("/", router);
 
 router.get('/api/grades',function(req, res){
     pool.query(
-        `SELECT Students.student_id, first_name, last_name, AVG(assignments.grade) as total_grade \
+        `SELECT Students.student_id, first_name, last_name, AVG(assignments.assignment_id) as total_grade \
             FROM Students  \
             LEFT JOIN Assignments ON Assignments.student_id = Students.student_id \
             GROUP BY Students.student_id \
